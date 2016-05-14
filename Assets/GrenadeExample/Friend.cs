@@ -2,19 +2,11 @@
 using System.Collections;
 using System;
 
-public class Friend : MonoBehaviour, ICouldTakeDamage {
-	public void TakeDamage(float damage)
-	{
-		print("Friend took damage: " + damage);
-	}
+public class Friend : ALivingThing {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public override string ToString()
+    {
+        return "Friend";
+    }
+
 }

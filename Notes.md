@@ -1,4 +1,10 @@
+# C# for Unity3D 
+Cheatsheet for using C# in Unity3D
+Unity3D uses the Mono Runtime which supports basically the Language Level 4.
+
 # Namespaces
+Grouping your code to a logical Unit for the compiler.
+__Important for sharing and reusing code!__ Avoid naming conflicts.  
 
 ```cs
 
@@ -49,6 +55,22 @@ public abstract class <AAbstractClassName> {
 
 ```
 
+
+```cs
+public class <AUnityEntity> : Monobehavior {
+	
+}
+
+```
+
+Use abstract classes as Unity entity base classes
+
+```cs
+public abstract class <AUnityEntity> : Monobehavior {
+	
+}
+
+``` 
 
 ### Properties vs Fields
 

@@ -1,9 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class ALivingThing : MonoBehaviour {
-
-    Action<ALivingThing> OnDead;
+public abstract class ALivingThing : MonoBehaviour, ICouldTakeDamage {
 
     public float TotalHealth = 100;
     
@@ -19,6 +17,20 @@ public abstract class ALivingThing : MonoBehaviour {
                 Die();
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        print(this.ToString());
+        TotalHealth = TotalHealth - damage;
+    }
+
+
+
+
+
+
+
+    Action<ALivingThing> OnDead;
 
     private void Die()
     {

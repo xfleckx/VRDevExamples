@@ -5,7 +5,6 @@ using System.Linq;
 
 public class Grenade : MonoBehaviour
 {
-
     public GameObject explosionPrefab;
 
     public float InitialDamage = 5;
@@ -39,18 +38,17 @@ public class Grenade : MonoBehaviour
 
     private void distributeDamage()
     {
-        var hits = Physics.OverlapSphere(transform.position, effectiveDamageDistance);
-
+        Collider[] hits = Physics.OverlapSphere(transform.position, effectiveDamageDistance);
+        
         foreach (var item in hits)
         {
             var damageTaker = item.GetComponent<ICouldTakeDamage>();
 
-            float distance = Vector3.Distance(item.transform.position, transform.transform.position);
-
-            float percentageOfDamage = effectiveDamageDistance / 100 * distance;
-
-            if (damageTaker != null)
+            if (damageTaker != null) { 
+                float distance = Vector3.Distance(item.transform.position, transform.position);
+                float percentageOfDamage = effectiveDamageDistance / 100 * distance;
                 damageTaker.TakeDamage(InitialDamage * percentageOfDamage);
+            }
         }
 
     }
